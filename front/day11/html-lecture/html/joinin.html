@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>joinin</title>
+  </head>
+  <body>
+    <!-- https://andar.co.kr/member/join.html -->
+    <h2>회원가입</h2>
+    <h3>기본정보</h3>
+    <!-- prettier-ignore -->
+    <div>
+    <!-- radio : name속성을 같은 것으로 해야 하나만 체크됨 -->
+    <!-- radio : id속성을 다른 것으로 해야 텍스트를 눌러도 체크됨 -->
+      <span><label for="indivisual"><input type="radio" id="indivisual" name="member" value="indivisual" checked/>개인회원</label></span>
+      <span><label for="business"><input type="radio" id="business" name="member" value="business" />사업자회원</label></span>
+      <span><label for="foreginer"><input type="radio" id="foreginer" name="member" value="foreginer" />외국인회원(Foreginer)</label></span>
+    </div>
+
+    <div>아이디 <input type="text" name="id" placeholder="(영문소문자/숫자,4~16자)" /></div>
+    <div>비밀번호 <input type="password" name="password" placeholder="(영문 대소문자/숫자/특수문자 중 2가지 이상 조합,8~16자)" /></div>
+    <div>비밀번호 확인 <input type="password" name="password" /></div>
+    <div>이름 <input type="text" name="name" /></div>
+    <span>주소 <input type="text" name="address" /></span>
+    <span><button>우편번호</button></span>
+    <div><input type="text" name="address" placeholder="기본 주소" /></div>
+    <div><input type="text" name="address" /></div>
+    <div>
+      휴대전화
+      <select name="" id="">
+        <option value="">010</option>
+        <option value="">011</option>
+        <option value="">017</option>
+        <option value="">018</option>
+        <option value="">019</option>
+      </select>
+    </div>
+    <div><input type="text" /></div>
+    <span><input type="text" /></span>
+
+    <span><button>간편인증</button></span>
+    <div>이메일 <input type="email" name="email" /></div>
+
+    <h3>추가정보</h3>
+    <!-- prettier-ignore -->
+    <div>
+      <span>성별<label for="male"><input type="radio" id="male" name="gender" value="male" />남자</label></span>
+      <span><label for="female"><input type="radio" id="female" name="gender" value="female" />여자</label></span>
+    </div>
+    <div>생년월일 <input type="text" name="birthday" />년 <input type="text" name="birthday" />월 <input type="text" name="birthday" />일</div>
+
+    <h3>전체동의</h3>
+    <!-- prettier-ignore -->
+    <div>
+        <div><label><input type="checkbox" name="agree" /><strong>이용약관 및 개인정보수집 및 이용,쇼핑정보 수신(선택)에 모두 동의합니다.</strong></label></div>
+        <div><label><input type="checkbox" name="agree" />[필수]이용약관 동의</label></div>
+        <div><label><input type="checkbox" name="agree" />[필수]개인정보 수집 및 이용 동의</label></div>
+        <span><label><input type="checkbox" name="agree" />[선택]SMS(문자,카카오톡)수신을 동의하십니까?</label></span>
+        <span><label><input type="checkbox" name="ageree" />[선택]이메일 수신을 동의하십니까?</label></span>
+      </div>
+
+    <button>취소</button>
+    <button>회원가입</button>
+  </body>
+</html>
