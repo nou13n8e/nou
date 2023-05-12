@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대방건설</title>
+    <link rel="shortcut icon" href="../dbcons/images/favicon.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../dbcons/css/font.css" />
+    <link rel="stylesheet" href="../dbcons/css/reset.css" />
+    <link rel="stylesheet" href="../dbcons/css/common.css" />
+    <link rel="stylesheet" href="../dbcons/css/layout.css" />
+    <link rel="stylesheet" href="../dbcons/css/main.css" />
+  </head>
+  <body>
+    <!-- 시맨틱 코딩(semantic web cording) : 의미가 부여된 코딩 -->
+    <header class="header">
+      <h1 class="logo">
+        <a href=""><img src="../dbcons/images/logo.png" alt="대방건설 로고" /></a>
+      </h1>
+      <nav id="gnb" class="gnb">
+        <!-- 다른 페이지 또는 현재 페이지의 다른 부분과 연결되는 네이게이션 링크(navigation links)들의 집합을 정의할 때 사용 -->
+        <ul class="list">
+          <!-- ul태그 안에는 반드시 li태그만 사용 -->
+          <!-- 그러므로 그 아래 li를 만들고 싶다면 li태그 안에서 ul태그를 사용 -->
+
+          <!-- ul>li>a*로 작성하면 한번에 작성 가능 -->
+          <!-- id, class는 모든 태그가 가질 수 있는 속성 -->
+          <li>
+            <a href="" class="depth01">회사정보</a>
+            <ul class="depth02">
+              <li><a href="">개요</a></li>
+              <li><a href="">CEO 인사말</a></li>
+              <li><a href="">연혁</a></li>
+              <li><a href="">조직도</a></li>
+              <li><a href="">오시는길</a></li>
+              <li><a href="">협력업체등록</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">사업영역</a>
+            <ul class="depth02">
+              <li><a href="">주택사업</a></li>
+              <li><a href="">건축사업</a></li>
+              <li><a href="">토목사업</a></li>
+              <li><a href="">기타사업</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">지속가능경영</a>
+            <ul class="depth02">
+              <li><a href="">품질경영</a></li>
+              <li><a href="">윤리경영</a></li>
+              <li><a href="">사회공헌</a></li>
+              <li><a href="">상생경영</a></li>
+              <li><a href="">안전경영</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">홍보센터</a>
+            <ul class="depth02">
+              <li><a href="">공고</a></li>
+              <li><a href="">뉴스룸</a></li>
+              <li><a href="">기업광고</a></li>
+              <li><a href="">CI/BI 소개</a></li>
+              <li><a href="">수상실적</a></li>
+              <li><a href="">대방골프단</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="depth01">채용정보</a>
+            <ul class="depth02">
+              <li><a href="">인재상</a></li>
+              <li><a href="">인사제도</a></li>
+              <li><a href="">채용지원 및 문의</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="main-visual">
+        <!-- video : 비디오를 삽입하기 위한 태그, autoplay/muted/loop : 비디오를 자동으로 재생시키는 속성 -->
+        <video src="../dbcons/images/visual_video.mp4" autoplay muted loop></video>
+      </div>
+    </main>
+  </body>
+</html>

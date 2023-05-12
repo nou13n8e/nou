@@ -1,0 +1,23 @@
+.main-visual video {
+  width: 100%;
+  height: 100vh;
+  /* 모니터 크기가 다 다를 수 있으므로 100vw, vh로 설정 */
+  object-fit: cover;
+  /* 화면의 비율을 망가트리지 않게 설정 */
+}
+
+.business .list {
+  color: #111;
+}
+.business .list li {
+  /* 영역을 4등분 해서 li에 부여할 때 */
+  /* width: calc(25% - 40px); */
+  /* cals : css에서 제공하는 함수(단위가 달라도 연산 가능) */
+  width: 25%;
+  /* margin: 0 20px; */
+}
+
+.business .list li .img-box {
+  /* 투명하게 하는 방법(나타나지 않게 하는 방법) */
+  display: none;
+}

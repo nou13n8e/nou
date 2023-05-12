@@ -1,0 +1,110 @@
+/* position / flex */
+.header {
+  position: absolute;
+  /* position : 요소의 배치 방식을 결정, default=static/relative/absolute/fixed */
+  width: 100%;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0);
+  overflow: hidden;
+  /* 요소 내의 컨텐츠가 커서 넘칠 때 어떻게 보여줄지 결정 */
+  z-index: 99;
+  transition: all 0.5s ease;
+  /* transition : header가 펼쳐지는데 걸리는 시간을 설정(느리게) */
+}
+.header:after {
+  /* hover된 뒤 depth01 아래에 회색 선을 넣고 싶을 때 */
+  content: " ";
+  display: block;
+  /* 요소의 크기를 어떻게 결정할 건지 설정(block, inline 등) */
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  position: absolute;
+  top: 100px;
+}
+
+.header:hover {
+  /* hover : 요소에 마우스를 올렸을 때 처리할 방법에 대해 설정 */
+  height: 350px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.header:hover .list {
+  color: #111;
+}
+.header .logo {
+  position: absolute;
+  height: 100px;
+  display: flex;
+  /* display : 요소를 어떻게 보여줄지 결정, (flex인 경우 default=row(가로)) */
+  /* 세로로 나열된 요소를 가로로 나열시킬 수 있으며 축(main-axis, cross-axis)이 생김 */
+  align-items: center;
+  /* 세로축 기준의 요소의 정렬이나 간격을 결정(start/center/end/baseline/stretch 등 사용 가능) */
+  /* outline: 1px solid #f00; */
+  padding-left: 50px;
+  padding-right: 50px;
+  /* padding(내부여백) <> margin(외부여백)  */
+}
+
+.header .logo a .white {
+  position: absolute;
+  transition: all 0.25s ease;
+}
+.header .logo a .black {
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+.header:hover .logo a .black {
+  opacity: 1;
+}
+.header:hover .logo a .white {
+  opacity: 0;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  /* 가로축 기준의 요소의 정렬이나 간격을 결정(start/center/end/space-between/space-around/space-evenly 등 사용 가능) */
+  color: #fff;
+}
+.list .depth01 {
+  font-size: 20px;
+  font-weight: 700;
+  /* display: block;
+    line-height: 100px; */
+  height: 100px;
+  /* width: 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* outline: 1px solid #ff0000; */
+  transition: all 0.25s ease;
+}
+
+.list > li:hover .depth01 {
+  color: #111;
+}
+
+.list .depth02 {
+  font-size: 16px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.list .depth02 li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.25s ease;
+}
+.list .depth02 li a:hover {
+  color: #f60;
+}
+
+.list .depth02 .masterpiece {
+  color: #f60;
+  font-weight: 700;
+}
