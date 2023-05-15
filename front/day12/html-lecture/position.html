@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      body {
+        min-height: 3000px;
+      }
+
+      .parent {
+        background-color: #000;
+        width: 200px;
+        height: 200px;
+        border: 2px solid #f00;
+
+        /* margin-top: 30px;
+        margin-left: 30px; */
+        /* parent의 position이 없어서 red의 기준은 body */
+
+        position: relative;
+        /* parent에 positon이 있으면 red의 기준은 parent */
+        /* relative는 자기 위치를 기준으로 잡음 */
+      }
+
+      .son {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #000;
+      }
+
+      .inner-son {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #000;
+      }
+
+      .red {
+        background-color: red;
+        /* position: absolute; */
+        /* red의 position이 absolute일 경우 red 무시하므로 */
+        /* 아래에 있던 blue가 위로 올라옴 */
+
+        /* z-index: 1;
+        right: 200px;
+        top: 100px; */
+      }
+
+      .blue {
+        background-color: blue;
+        height: 50px;
+        /* position: absolute; */
+        /* relative는 자기 위치를 기준으로 잡음, absolute는 부모 위치를 기준으로 잡음  */
+
+        z-index: 2;
+        /* 둘 다 position있는데 blue가 아래 있어서 z-index 없이 가능 */
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
+
+      .green {
+        background-color: green;
+        /* position: fixed; */
+        /* fixed는 body를 기준으로 잡음 */
+
+        position: sticky;
+        /* sticky는 scroll을 기준으로 잡음
+          scroll에 부모가 걸리면 fixed가 되고
+          scroll이 부모를 지나가면 relative로 바뀜 */
+        /* 부모가 반드시 height를 가져야 함 */
+
+        left: 0;
+        top: 0;
+        z-index: 3;
+        /* z-index는 같은 레벨 인덱스끼리 기준이므로
+         green이 제일 위에 올라와있을거같지만
+         blue가 더 위에 올라와있음 */
+        /* 부모에 z-index가 없을 경우 green이 위로 올라옴 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="parent">
+      <div class="son red">
+        <div class="inner-son green"></div>
+      </div>
+      <!-- red랑 green을 하나로 묶어놓음 -->
+      <div class="son blue"></div>
+    </div>
+  </body>
+</html>

@@ -18,7 +18,7 @@ a {
   /* 모니터 넓이에서 남는만큼 자동으로 영역 측정 */
   margin: 0 auto;
   /* 요약해서 사용하기 위해 top부터 시계방향으로 설정 */
-  outline: 1px solid #f00;
+  /* outline: 1px solid #f00; */
 }
 
 h2 {

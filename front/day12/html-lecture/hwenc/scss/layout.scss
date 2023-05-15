@@ -1,0 +1,149 @@
+/* 계층구조를 활용한 SASS / SCSS */
+$main-color: #f60;
+
+.header {
+  position: fixed;
+  //position : 요소의 배치 방식을 결정, default=static/relative/absolute/fixed
+  //absolute인 경우 부모가 간섭을 하지 않으며 layout에서 빠짐(최소한의 넓이만 가지므로 넓이 지정해주는 것이 편함)
+  //fixed인 경우 body기준으로 배치됨
+  width: 100%;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0);
+  overflow: hidden;
+  //overflow : 요소 내 컨텐츠가 넘칠 때 처리 방식을 결정
+  //비디오 때문에 a태그가 막히므로 z축을 설정해주어야 함
+  z-index: 99;
+  transition: all 0.5s ease;
+  //transition : 요소가 표시되는데에 걸리는 시간을 설정
+  &:after {
+    // 자기 자신을 뜻하는 &표시를 붙여줘야 자기 자신의 after가 가능
+    //after : hover된 뒤 아래에 회색 선 추가
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    position: absolute;
+    top: 100px;
+  }
+  //가상의 태그 : pseudo element : html에 빈 div태그를 만들 수 있지만 사용하지 않음
+  &:hover {
+    //hover : 요소에 이벤트가 발생할 때 처리 방법 설정
+    height: 350px;
+    background-color: rgba(255, 255, 255, 1);
+    transition: all 0.5s ease;
+    .list {
+      color: #111;
+    }
+    .logo a {
+      .black {
+        opacity: 1;
+      }
+      .white {
+        opacity: 0;
+      }
+    }
+  }
+  .logo {
+    position: absolute;
+    height: 100px;
+    display: flex;
+    //display : 요소를 어떻게 보여줄지 결정 (flex인 경우, default=row(가로)
+    //세로로 나열된 요소를 가로로 나열시킬 수 있으며 축(main-axis, cross-axis)이 생김
+    align-items: center;
+    //align-items : 세로축 기준인 요소의 정렬이나 간격을 결정(start/center/end/baseline/stretch등)
+    //outline: 1px solid #f00;
+    padding-left: 50px;
+    padding-right: 50px;
+    //padding(내부여백) <> margin(외부여백)
+    a {
+      .white {
+        position: absolute;
+        transition: all 0.25s ease;
+      }
+      .black {
+        opacity: 0;
+        transition: all 0.25s ease;
+      }
+    }
+  }
+}
+
+.gnb {
+  .list {
+    display: flex;
+    justify-content: center;
+    //justify-content : 가로축 기준인 요소의 정렬이나 간격을 결정(start/center/end/space-between/space-around/space-evenly등)
+    color: #fff;
+    > li {
+      .depth01 {
+        position: relative;
+        font-size: 20px;
+        font-weight: 700;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: all 0.25s ease;
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 3px;
+          background-color: $main-color;
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          transform: scaleX(0);
+          transition: all 0.25s ease;
+          z-index: 1;
+        }
+      }
+
+      &:hover .depth01 {
+        color: $main-color;
+        //border-bottom: 2px solid #f60
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+      .depth02 {
+        font-size: 16px;
+        text-align: center;
+        padding-top: 10px;
+        li a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          transition: all 0.25s ease;
+        }
+        .masterpiece {
+          color: $main-color;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  left: 100px;
+  top: 100px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  //box-shadow : 그림자 효과 x축, y축, 블러, 반투명;
+  .content {
+    width: 400px;
+    height: 400px;
+    background-color: $main-color;
+    margin-bottom: 10px;
+  }
+}
