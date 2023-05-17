@@ -19,20 +19,21 @@
   <body>
     <!-- 시맨틱 코딩(semantic web cording) : 의미가 부여된 코딩 -->
     <header class="header on">
+      <!-- 여러개의 클래스를 가질 수 있으므로 header, on 두 개의 클래스를 설정 -->
+      <!-- 자바스크립트를 통해 on이 들어갈 때와 들어가지 않을 때를 나눠 header를 다르게 설정 -->
       <h1 class="logo">
         <a href="">
           <img src="../images/layout/logo.png" alt="㈜한화/건설 로고" class="white" />
           <img src="../images/layout/logo_on.png" alt="㈜한화/건설 로고" class="black" />
+          <!-- 두 개의 이미지를 겹치게 넣어서 hover 되었을 때 어떤 이미지가 보일지 설정 -->
         </a>
       </h1>
       <nav id="gnb" class="gnb">
-        <!-- 다른 페이지 또는 현재 페이지의 다른 부분과 연결되는 네비게이션 링크(navigation links)들의 집합을 정의할 때 사용 -->
+        <!-- nav : 다른 페이지 또는 현재 페이지의 다른 부분과 연결되는 네비게이션 링크(navigation links)들의 집합을 정의할 때 사용 -->
         <ul class="list">
           <!-- ul태그 안에는 반드시 li태그만 사용 -->
           <!-- 그러므로 그 아래 li를 만들고 싶다면 li태그 안에서 ul태그를 사용 -->
-
           <!-- ul>li>a*로 작성하면 한번에 작성 가능 -->
-          <!-- id, class는 모든 태그가 가질 수 있는 속성 -->
           <li>
             <a href="" class="depth01">부문소개</a>
             <ul class="depth02">
@@ -94,7 +95,8 @@
     <!-- header end -->
     <main>
       <div class="main-visual">
-        <!-- video : 비디오 삽입하기 위한 태그, autoplay/muted/loop:비디오를 자동으로 재생시키는 속성 -->
+        <!-- video : 비디오 삽입하기 위한 태그로
+        autoplay/muted/loop:비디오를 자동으로 재생시키는 속성 부여 가능 -->
         <video src="../images/video/main.mp4" autoplay muted loop></video>
       </div>
       <!-- main-visual end -->
@@ -163,6 +165,7 @@
           <div class="container">
             <h2 class="point-color">마스터피스</h2>
             <p class="main"><strong>열정</strong>과 <strong>정성</strong>을 담아 짓습니다.</p>
+            <!-- 내용을 강조하고 싶을 때 strong, em 사용 가능 -->
             <p class="sub">
               시대의 걸작을 만들어 내기 위해 모든 열정과 정성을 다하고 있습니다.<br />
               예술로 승화되는 랜드마크, 해외 신도시 건설은 물론 대규모 사회 인프라 시설까지<br />
@@ -237,14 +240,16 @@
           </ul>
         </div>
       </div>
+      <!-- master-piece end -->
     </main>
 
     <aside class="popup">
       <div class="content">popup에 필요한 이미지 또는 내용이 들어갑니다.</div>
-      <!-- popup에 필요한 이미지 또는 내용이 들어간다 -->
       <div><label for="oneday">오늘 하루 이 창을 열지 않기</label><input type="checkbox" id="oneday" /></div>
-      <!-- label로 감싼 뒤 for값을 id값과 맞춘다 -->
+      <!-- label 요소는 for속성을 사용해 같이 다른 요소와 결합할 수 있으며,
+      이 때 label요소의 for속성값이 결합하고자 하는 id속성값과 같아야 한다 -->
     </aside>
+
     <script src="../js/main.js"></script>
   </body>
 </html>

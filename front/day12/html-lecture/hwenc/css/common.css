@@ -1,6 +1,5 @@
 @charset "UTF-8";
 body {
-  /* key: value; */
   font-size: 18px;
   font-family: "Noto Sans KR";
   font-weight: 400;
@@ -14,12 +13,7 @@ a {
 
 .container {
   width: 1200px;
-  /* margin-left: auto;
-    margin-right: auto; */
-  /* 모니터 넓이에서 남는만큼 자동으로 영역 측정 */
   margin: 0 auto;
-  /* 요약해서 사용하기 위해 top부터 시계방향으로 설정 */
-  /* outline: 1px solid #f00; */
 }
 
 h2 {

@@ -14,6 +14,7 @@
 
     <script>
       const money = document.querySelector("#money");
+      //id를 입력할 때는 #id, class를 입력할 때는 .class
       const btnCalc = document.querySelector(".btn-calc");
       const result = document.querySelector(".result");
       const btnReset = document.querySelector(".btn-reset");
@@ -23,7 +24,9 @@
         let moneyValue = money.value;
         //moneyValue의 값이 변할 것이므로 let으로 설정하고 value값을 대입
         const m50000 = Math.floor(moneyValue / 50000);
+        //moneyValue 값을 50000으로 나눈 값을 m50000에 대입
         moneyValue = moneyValue % 50000;
+        //moneyValue 값을 50000으로 나누고 남은 값을 다시 moneyValue에 대입
         const m10000 = Math.floor(moneyValue / 10000);
         moneyValue = moneyValue % 10000;
         const m5000 = Math.floor(moneyValue / 5000);
@@ -37,7 +40,7 @@
         const m50 = Math.floor(moneyValue / 50);
         moneyValue = moneyValue % 50;
         const m10 = Math.floor(moneyValue / 10);
-        result.textContent = `오만원 ${m50000}장 만원 ${m10000}장 오천원 ${m5000}장 천원 ${m1000}장 오백원 ${m500}개 백원 ${m100}개 오십원 ${m50}개 십원 ${m10}개 `;
+        result.textContent = `오만원 ${m50000}장, 만원 ${m10000}장, 오천원 ${m5000}장, 천원 ${m1000}장, 오백원 ${m500}개, 백원 ${m100}개, 오십원 ${m50}개, 십원 ${m10}개 `;
         //변수와 문자가 섞였을 때 그 둘을 분리해서 인식할 수 있도록 ``처리
 
         btnReset.addEventListener("click", function () {

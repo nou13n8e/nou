@@ -1,8 +1,8 @@
 @import "vars";
-// _vars에서 정한 값들을 가져다쓸 수 있다
+// _vars에서 정한 값들을 가져와서 사용 가능
 
 body {
-  /* key: value; */
+  // key: value; 순으로 입력해야 실행 가능
   font-size: 18px;
   font-family: "Noto Sans KR";
   font-weight: 400;
@@ -16,12 +16,12 @@ a {
 
 .container {
   width: 1200px;
-  /* margin-left: auto;
-    margin-right: auto; */
-  /* 모니터 넓이에서 남는만큼 자동으로 영역 측정 */
+  //margin-left: auto;
+  //margin-right: auto;
+  //모니터 넓이에서 남는만큼 자동으로 영역 측정
   margin: 0 auto;
-  /* 요약해서 사용하기 위해 top부터 시계방향으로 설정 */
-  /* outline: 1px solid #f00; */
+  //요약해서 사용하기 위해 top부터 시계방향으로 설정
+  //outline: 1px solid #f00;
 }
 
 h2 {
@@ -33,6 +33,7 @@ h2 {
 strong {
   font-weight: 700;
 }
+
 .point-color {
   color: $main-color;
 }

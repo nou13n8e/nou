@@ -4,6 +4,7 @@
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  //object-fit : 요소가 지정된 너비와 높이에 맞게 장착되는 방식을 지정
 }
 
 .business {
@@ -17,18 +18,21 @@
       &:hover {
         .img-box {
           transform: translateY(0);
+          //transform : 태그나 이미지를 늘리거나 회전시킬 때 사용
+          //translate(이동) 즉, translateY은 Y축으로의 이동
           opacity: 1;
         }
       }
       @for $i from 1 to 5 {
+        //$i from 1 through 4로 교체 가능
         &:nth-child(#{$i}) a::before {
           // #{문자열} : 보간(interpolation)
           background-image: url(../images/main/main_business_icon0#{$i}.png);
         }
       }
     }
-    // @for 조건을 $i from 1 through 4로 바꿀 수 있다
 
+    // 규칙이 있으므로 반복문을 사용해서 처리
     // &:nth-child(1) a::before {
     //   background-image: url(../images/main/main_business_icon01.png);
     // }
@@ -40,7 +44,7 @@
     // }
     // &:nth-child(4) a::before {
     //   background-image: url(../images/main/main_business_icon04.png);
-    // } 규칙이 있으므로 반복문을 사용해서 만들 수 있다
+    // }
 
     a {
       font-size: 20px;
@@ -63,9 +67,8 @@
     .img-box {
       //display: none;
       pointer-events: none;
-      //특정 요소 위에 이벤트가 발생하면
-      //일어나야 할 행위를 함수로 정의한다
-      //사용자가 그 이벤트를 발생시키면 함수가 실행된다
+      //특정 요소 위에서 이벤트가 발생하면 할 행위를 함수로 정의
+      //사용자가 그 이벤트를 발생시키면 정의해둔 함수(행위)가 실행
       opacity: 0;
       transform: translateY(100px);
       position: absolute;
@@ -105,9 +108,9 @@
     background-image: url("../images/main/main_master_img01.jpg");
     background-repeat: no-repeat;
     background-position: 0 0;
-    //default : left top값을 넣는다
+    //default : left top
     background-size: cover;
-    //비율을 유지해서 배경을 가득 채운다
+    // 비율을 유지하면서 배경을 가득 채우는 용도
     // background-attachment: fixed;
     color: #fff;
     .main {
