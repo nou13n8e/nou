@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>환전하기</title>
+  </head>
+  <body>
+    <label><span>금액 </span><input type="text" id="money" class="money" placeholder="금액을 입력해주세요." /></label>
+    <button class="btn-calc">계산하기</button>
+    <button class="btn-reset">초기화</button>
+    <div class="result"></div>
+
+    <script>
+      const money = document.querySelector("#money");
+      const btnCalc = document.querySelector(".btn-calc");
+      const result = document.querySelector(".result");
+      const btnReset = document.querySelector(".btn-reset");
+      //html에서 값을 찾아서 각 변수에 대입할 수 있도록 설정
+      btnCalc.addEventListener("click", function () {
+        //계산하기 버튼을 "click"하는 이벤트가 발생했을 때 function이 실행
+        let moneyValue = money.value;
+        //moneyValue의 값이 변할 것이므로 let으로 설정하고 value값을 대입
+        const m50000 = Math.floor(moneyValue / 50000);
+        moneyValue = moneyValue % 50000;
+        const m10000 = Math.floor(moneyValue / 10000);
+        moneyValue = moneyValue % 10000;
+        const m5000 = Math.floor(moneyValue / 5000);
+        moneyValue = moneyValue % 5000;
+        const m1000 = Math.floor(moneyValue / 1000);
+        moneyValue = moneyValue % 1000;
+        const m500 = Math.floor(moneyValue / 500);
+        moneyValue = moneyValue % 500;
+        const m100 = Math.floor(moneyValue / 100);
+        moneyValue = moneyValue % 100;
+        const m50 = Math.floor(moneyValue / 50);
+        moneyValue = moneyValue % 50;
+        const m10 = Math.floor(moneyValue / 10);
+        result.textContent = `오만원 ${m50000}장 만원 ${m10000}장 오천원 ${m5000}장 천원 ${m1000}장 오백원 ${m500}개 백원 ${m100}개 오십원 ${m50}개 십원 ${m10}개 `;
+        //변수와 문자가 섞였을 때 그 둘을 분리해서 인식할 수 있도록 ``처리
+
+        btnReset.addEventListener("click", function () {
+          //초기화 버튼을 눌렀을 때 값을 비워주도록 설정
+          money.value = "";
+          result.textContent = "";
+        });
+      });
+    </script>
+  </body>
+</html>
