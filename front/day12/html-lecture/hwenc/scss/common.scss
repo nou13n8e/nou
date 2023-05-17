@@ -1,4 +1,6 @@
-@charset "UTF-8";
+@import "vars";
+// _vars에서 정한 값들을 가져다쓸 수 있다
+
 body {
   /* key: value; */
   font-size: 18px;
@@ -31,9 +33,8 @@ h2 {
 strong {
   font-weight: 700;
 }
-
 .point-color {
-  color: #f60;
+  color: $main-color;
 }
 
 p {

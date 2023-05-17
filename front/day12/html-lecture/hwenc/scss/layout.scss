@@ -1,5 +1,6 @@
 /* 계층구조를 활용한 SASS / SCSS */
-$main-color: #f60;
+@import "vars";
+// _vars에서 정한 값들을 가져다쓸 수 있다
 
 .header {
   position: fixed;
@@ -26,7 +27,6 @@ $main-color: #f60;
     position: absolute;
     top: 100px;
   }
-  //가상의 태그 : pseudo element : html에 빈 div태그를 만들 수 있지만 사용하지 않음
   &:hover {
     //hover : 요소에 이벤트가 발생할 때 처리 방법 설정
     height: 350px;
