@@ -21,7 +21,7 @@ menu.forEach((item01, idx01) => {
 });
 // => : function()대신에 화살표 함수(fat arrow) 사용 가능
 // 함수를 변수에 할당 가능(함수가 데이터처럼 기능)
-// 다른 함수를 인자(argument)로 전달 가능, 결과로 리턴 가능
+// 다른 함수를 인자(argument)로 전달 가능, 결과 리턴 가능
 
 // const sum = (a,b) => a + b;
 // console.log(sum(100,100));
@@ -42,6 +42,7 @@ gnbList.forEach(function (item, idx) {
 });
 
 const swiper = new Swiper(".social .mask", {
+  //swiperjs.com에서 지원하는 swiper 사용
   speed: 600,
   slidesPerView: 4,
   spaceBetween: 25,
@@ -53,10 +54,12 @@ const swiper = new Swiper(".social .mask", {
   pagination: {
     el: ".social .pagination .inner",
     type: "progressbar",
+    //progressbar : Swiper에서 지원하는 타입 중 하나
   },
 });
 
 const mainSwiper = new Swiper(".main-visual .mask", {
+  //swiperjs.com에서 지원하는 swiper 사용
   speed: 600,
   loop: true,
   effect: "fade",
@@ -67,5 +70,6 @@ const mainSwiper = new Swiper(".main-visual .mask", {
   pagination: {
     el: ".main-visual .pagination",
     type: "fraction",
+    //fraction : Swiper에서 지원하는 타입 중 하나
   },
 });

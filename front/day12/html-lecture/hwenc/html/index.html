@@ -37,7 +37,6 @@
         <ul class="list">
           <!-- ul태그 안에는 반드시 li태그만 사용 -->
           <!-- 그러므로 그 아래 li를 만들고 싶다면 li태그 안에서 ul태그를 사용 -->
-          <!-- ul>li>a*로 작성하면 한번에 작성 가능 -->
           <li>
             <a href="" class="depth01">부문소개</a>
             <ul class="depth02">
@@ -99,9 +98,9 @@
     <!-- header end -->
     <main>
       <div class="main-visual">
-        <!-- video : 비디오 삽입하기 위한 태그로
-        autoplay/muted/loop:비디오를 자동으로 재생시키는 속성 부여 가능 -->
+        <!-- autoplay/muted/loop : 비디오를 자동으로 재생시키는 속성 부여 가능 -->
         <video src="../images/video/main.mp4" autoplay muted loop></video>
+
         <div class="mask">
           <ul class="swiper-wrapper list">
             <li class="swiper-slide visual01">
@@ -169,6 +168,7 @@
       </div>
       <!-- main-visual end -->
       <div class="business section">
+        <!-- 사업분야, 마스터피스 등 h2태그에 들어가는 소제목을 통제하기 위해 section 클래스 추가 -->
         <div class="container">
           <h2>사업분야</h2>
           <ul class="list">
@@ -227,7 +227,7 @@
           </ul>
         </div>
       </div>
-      <!-- business end -->
+      <!-- business end (0517) -->
       <div class="master-piece">
         <div class="subject">
           <div class="container">
@@ -308,7 +308,7 @@
           </ul>
         </div>
       </div>
-      <!-- master-piece end -->
+      <!-- master-piece end (0517) -->
       <div class="news-room section">
         <div class="container">
           <h2>뉴스룸</h2>
@@ -353,6 +353,7 @@
           <a href="" class="more">MORE</a>
         </div>
       </div>
+      <!-- news-room end (0518) -->
       <div class="social section">
         <div class="container">
           <h2>소셜채널</h2>
@@ -552,13 +553,14 @@
           <a href="" class="more">MORE</a>
         </div>
       </div>
+      <!-- social end (0518) -->
     </main>
 
     <aside class="popup">
       <div class="content">popup에 필요한 이미지 또는 내용이 들어갑니다.</div>
       <div><label for="oneday">오늘 하루 이 창을 열지 않기</label><input type="checkbox" id="oneday" /></div>
       <!-- label 요소는 for속성을 사용해 같이 다른 요소와 결합할 수 있으며,
-      이 때 label요소의 for속성값이 결합하고자 하는 id속성값과 같아야 한다 -->
+      이 때 label요소의 for속성값이 결합하고자 하는 id속성값과 일치! -->
     </aside>
 
     <script src="../js/main.js"></script>
