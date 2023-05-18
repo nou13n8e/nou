@@ -4,6 +4,81 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.main-visual .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.main-visual .mask .list li .img {
+  height: 100vh;
+}
+.main-visual .mask .list li .txt {
+  position: absolute;
+  top: 60%;
+  left: 200px;
+  line-height: 1.5;
+  color: #fff;
+}
+.main-visual .mask .list li .txt .main {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.main-visual .mask .list li .txt .main:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  margin: 20px 0;
+}
+.main-visual .mask .list li .txt .sub {
+  font-size: 20px;
+}
+.main-visual .mask .list li.visual01 .img {
+  background-image: url(../images/main/visual01.jpg);
+}
+.main-visual .mask .list li.visual02 .img {
+  background-image: url(../images/main/visual02.jpg);
+}
+.main-visual .mask .list li.visual03 .img {
+  background-image: url(../images/main/visual03.jpg);
+}
+.main-visual .mask .list li.visual04 .img {
+  background-image: url(../images/main/visual04.jpg);
+}
+.main-visual .mask .list li.visual05 .img {
+  background-image: url(../images/main/visual05.jpg);
+}
+.main-visual .mask .btns {
+  position: absolute;
+  left: 200px;
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+.main-visual .mask .btns .pagination {
+  width: auto;
+  color: #fff;
+  font-size: 20px;
+  padding: 0 20px;
+}
+.main-visual .mask .btns button {
+  color: #fff;
+  background-color: #f60;
+  border: none;
+  border-radius: 100px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .business {
   padding-bottom: 30px;
@@ -289,7 +364,7 @@
 
 .more {
   color: #999;
-  font-size: 15px;
+  font-size: 13px;
   position: absolute;
   right: 0;
   top: 20px;
