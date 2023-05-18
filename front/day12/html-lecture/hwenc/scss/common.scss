@@ -22,6 +22,8 @@ a {
   margin: 0 auto;
   //요약해서 사용하기 위해 top부터 시계방향으로 설정
   //outline: 1px solid #f00;
+  position: relative;
+  //more의 위치를 조정하기 위해 상위 요소인 container에 높이를 지정
 }
 
 h2 {
@@ -40,4 +42,8 @@ strong {
 
 p {
   line-height: 1.5;
+}
+
+.section {
+  padding: 100px 0;
 }
