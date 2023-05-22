@@ -131,6 +131,68 @@
   }
 }
 
+.footer {
+  position: relative;
+  background-color: #202020;
+  color: #fff;
+  padding: 50px 0 100px;
+  .footer-logo {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+  }
+  .container {
+    .menu {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      li {
+        &:nth-child(1) a {
+          padding-left: 0;
+        }
+        a {
+          padding: 20px;
+          display: block;
+          //인라인 속성에는 위아래가 없고 좌우만 있으므로 주의!
+        }
+      }
+    }
+    address {
+      padding-top: 20px;
+      color: rgba(255, 255, 255, 0.25);
+      .copyright {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .info-box {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.25);
+    .tel {
+      display: flex;
+      dl {
+        display: flex;
+        margin-left: 50px;
+        dd {
+          color: rgba(255, 255, 255, 0.5);
+          margin-left: 10px;
+        }
+      }
+    }
+    .social {
+      display: flex;
+      justify-content: end;
+      margin-top: 30px;
+      a {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
 .popup {
   display: none;
   position: fixed;

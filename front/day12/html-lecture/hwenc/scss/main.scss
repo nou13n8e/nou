@@ -1,3 +1,4 @@
+@import "mixins";
 @import "vars";
 
 .main {
@@ -403,6 +404,71 @@
     }
   }
 }
+
+.banner {
+  display: flex;
+  color: #fff;
+  > div {
+    width: 50%;
+    display: flex;
+    padding: 80px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .inner {
+      width: 600px;
+      // border: 1px solid #f60;
+    }
+  }
+  .forena {
+    background-image: url(../images/main/main_banner_bg_img01.jpg);
+    justify-content: end;
+    h2 {
+      letter-spacing: 20px;
+      //글자와 글자 사이의 간격 조절 가능
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: $h4;
+    }
+  }
+  .util-menu {
+    background-image: url(../images/main/main_banner_bg_img02.jpg);
+    .inner {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 50px;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 0;
+      span {
+        font-size: $h4;
+        display: block;
+        margin-top: 40px;
+        font-weight: 400;
+      }
+    }
+    ul {
+      li {
+        a {
+          display: block;
+          padding: 10px 0;
+          font-size: $h4;
+          border-bottom: 1px solid #fff;
+          width: 200px;
+          display: flex;
+          justify-content: space-between;
+          &::after {
+            // font-family: "Material Icons";
+            // content: "\e5cc";
+            @include icon("\e5cc");
+          }
+        }
+      }
+    }
+  }
+}
+
 .more {
   color: #999;
   font-size: 13px;
