@@ -1,36 +1,47 @@
 .header {
-  position: absolute;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
   width: 100%;
-  height: 100px;
   z-index: 99;
+  transition: all 0.25s ease;
 }
 .header .logo {
-  position: absolute;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #f00;
+  height: 80px;
+  padding: 0 50px;
 }
 .header .logo img {
-  max-height: 40px;
+  height: 40px;
+  top: 20px;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+.header .logo img.white {
+  opacity: 1;
+}
+.header.on {
+  color: #111;
+  background-color: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+.header.on .logo img.white {
+  opacity: 0;
+}
+.header.on .logo img.black {
+  opacity: 1;
+}
+
+.gnb .list {
+  display: flex;
+}
+.gnb .list li a {
   display: flex;
   align-items: center;
-  padding: 30px 50px;
-}
-.header .list {
-  display: flex;
-  height: 100px;
-  justify-content: end;
-  color: #fff;
-  border: 1px solid #f00;
-}
-.header .list .depth01 {
+  height: 80px;
+  padding: 0 40px;
   font-size: 20px;
-  font-weight: 700;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 30px;
-  border: 1px solid #f00;
+  font-weight: 500;
+  box-sizing: border-box;
 }

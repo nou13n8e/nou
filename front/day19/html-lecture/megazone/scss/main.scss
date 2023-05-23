@@ -1,43 +1,137 @@
 @import "vars";
+
 .main-visual {
   iframe {
     width: 100%;
     aspect-ratio: 1 / 0.5625;
   }
-  .txt {
-    color: #fff;
+  .slogan {
     position: absolute;
-    width: 100%;
+    color: #fff;
+    font-size: $h1;
     top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
+    transform: translateY(-50%); //세로 중앙으로 이동
+    text-align: center; //가로 중앙으로 이동(넓이 필수)
+    width: 100%;
+    line-height: 1.5;
+    font-weight: 700;
+
+    .word {
+      overflow: hidden;
+    }
+  }
+}
+
+.banner {
+  padding: 150px 0;
+  overflow-x: hidden;
+
+  .mask {
+    margin-top: 120px;
+    position: relative;
+    //button의 상위 요소에 높이 지정
     border: 1px solid #f00;
-    h2 {
-      font-size: $h1;
-      line-height: 60px;
+
+    .list {
+      li {
+        width: 1160px;
+        //swiper의 속성 sildePerView에서 auto를 쓰기 위해 넓이 지정
+        p {
+          margin-top: 30px;
+          font-size: $h3;
+          .category {
+            padding: 10px 20px;
+            background-color: #111;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    button {
+      position: absolute;
+      background: none;
+      top: 40%;
+      border: 2px solid #fff;
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      z-index: 2;
+      cursor: pointer;
+      .material-icons {
+        font-size: 48px;
+        color: #fff;
+      }
+      &.btn-next {
+        right: 270px;
+      }
+    }
+    .pagination {
+      margin-top: 50px;
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+        border: 3px solid $main-color;
+        background: none;
+        border-radius: 100px;
+        transition: all 0.25s ease;
+
+        &-active {
+          width: 50px;
+          background-color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+.partner {
+  padding: 150px 0;
+  background-color: $bg-color;
+  overflow-x: hidden;
+  .brand {
+    margin-top: 50px;
+    ul {
+      //display: flex;
+      //animation: brand-motion 10s linear infinite;
+      transition-timing-function: linear;
+      li {
+        width: auto;
+        padding: 0 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }
 
 .title-box {
-  padding: 100px 150px;
-  border: 1px solid #f00;
   h2 {
     font-size: $h1;
-    align-items: center;
-    line-height: 60px;
-    border: 1px solid #f00;
+    line-height: 1.25;
+
+    .mini {
+      color: $main-color;
+      display: block;
+      //줄바꿈
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
   }
 
-  h3 {
+  p {
     font-size: $h3;
-    align-items: center;
-    line-height: 30px;
-    border: 1px solid #f00;
-  }
-
-  .mask {
-    margin-top: 50px;
-    border: 1px solid #f00;
+    line-height: 1.25;
   }
 }
+
+// @keyframes brand-motion {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(-50%);
+//   }
+// }

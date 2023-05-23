@@ -1,40 +1,68 @@
+@import "vars";
+
 .header {
-  position: absolute;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
   width: 100%;
-  height: 100px;
   z-index: 99;
+  //swiper가 header를 가리기 때문에 설정
+  transition: all 0.25s ease;
 
   .logo {
-    position: absolute;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #f00;
+    height: 80px;
+    padding: 0 50px;
 
     img {
-      max-height: 40px;
-      display: flex;
-      align-items: center;
-      padding: 30px 50px;
+      height: 40px;
+      //로고 사이즈 줄이기
+      top: 20px;
+      position: absolute;
+      //로고 2개 모두 absolute 처리한 뒤 opacity 처리
+      opacity: 0;
+      transition: all 0.25s ease;
+
+      &.white {
+        opacity: 1;
+      }
     }
   }
 
+  &.on {
+    color: #111;
+    background-color: #fff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+    // scroll 했을 때 그림자 효과 추가
+
+    .logo {
+      img {
+        &.white {
+          opacity: 0;
+        }
+        &.black {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.gnb {
   .list {
     display: flex;
-    height: 100px;
-    justify-content: end;
-    color: #fff;
-    border: 1px solid #f00;
 
-    .depth01 {
-      font-size: 20px;
-      font-weight: 700;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 30px;
-      border: 1px solid #f00;
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        padding: 0 40px;
+        font-size: $h4;
+        font-weight: 500;
+        box-sizing: border-box;
+        // box-sizing (default: content-box)
+      }
     }
   }
 }
