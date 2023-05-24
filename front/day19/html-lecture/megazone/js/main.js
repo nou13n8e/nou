@@ -1,4 +1,5 @@
 Splitting();
+AOS.init();
 
 const header = document.querySelector(".header");
 // header.classList.add("on");
@@ -41,5 +42,13 @@ new Swiper(".partner .brand", {
   autoplay: {
     delay: 10,
     disableOnInteraction: false,
+  },
+});
+
+new Swiper(".recruit .txt-box .rolling", {
+  direction: "vertical",
+  loop: true,
+  autoplay: {
+    delay: 2000,
   },
 });

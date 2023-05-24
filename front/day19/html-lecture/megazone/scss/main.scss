@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixins";
 
 .main-visual {
   iframe {
@@ -107,6 +108,177 @@
   }
 }
 
+.effect {
+  // width: 1430px;
+  // margin-left: auto;
+  // margin-right: auto;
+  //effect에서 처리하는 것 대신 container로 묶어서 가운데로 정렬 (-common.css)
+  padding: 150px 0;
+  position: relative;
+  //하위 요소에 position을 적용시키기 위해 기준 설정
+  color: #fff;
+
+  .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    //상위 요소에 position이 있어야 상위 요소 기준으로 적용
+    width: 100%;
+    // height: 100%;
+    aspect-ratio: 1 / 0.5625;
+    //aspect-ration : height를 썼을 때 비율이 맞지 않으니까 비율에 맞춰 bg를 설정
+    z-index: -1;
+    //z-index : 타요소를 가리고 있으므로 타요소에 비해 밑으로 내려갈 수 있게 설정
+  }
+
+  .panel {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      //여백이 남아있으므로 패널들이 펼쳐지도록 설정
+      li {
+        width: 24%;
+        //4등분
+        img {
+          width: 100%;
+          //보여지는 이미지의 넓이가 꽉 차도록 설정
+          aspect-ratio: 1 / 1.5;
+          //보여지는 이미지의 크기가 일정하도록 비율 조정
+          transition: all 1s ease;
+          vertical-align: top;
+          //img, p사이의 미세한 영역을 조절
+        }
+
+        p {
+          font-weight: 700;
+        }
+
+        a:hover {
+          img {
+            transform: scale(1.2);
+            //transform : scale 크기가 커지도록 설정 (1이 100%)
+          }
+        }
+        .img-box {
+          overflow: hidden;
+          //transform : scale이 특정 영역 안에서 벗어나지 않게 설정
+        }
+      }
+    }
+  }
+}
+
+.news {
+  padding: 150px 0;
+
+  .title-box {
+    display: flex;
+    //자세히 보기를 옆으로 보내기 위해 news에 있는 title-box만 처리
+    align-items: end;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    .detail {
+      margin-left: 50px;
+      font-size: $h4;
+    }
+  }
+
+  .panel {
+    margin-top: 50px;
+    //마진 병합 현상 : margin-top과 margin-bottom이 만나는 경우 수가 큰 쪽만 적용
+    ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 0 20px;
+      //사진과 사진 사이의 여백 설정, margrin과 다르게 좌우 인접 요소가 있을 때 사용
+      li {
+        width: 33.33%;
+        .img-box {
+          img {
+            width: 100%;
+          }
+        }
+        .txt-box {
+          h3 {
+            margin: 20px 0 30px;
+            font-size: $h3;
+            font-weight: 700;
+            line-height: 1.25;
+            white-space: nowrap;
+            //br을 무효화하기 위해서 사용 가능
+            overflow: hidden;
+            // text-overflow: ellipsis;
+            //문장의 마지막에 ...처리 하기 위해 사용 (한 줄에서 사용)
+          }
+
+          p {
+            @include multiEllipsis();
+
+            // line-height: 1.5;
+            // height: 4.5em;
+            //em단위는 상위 요소의 글자 크기를 기준으로 결정
+            // overflow: hidden;
+
+            // -webkit-line-clamp: 3;
+            // -webkit-box-orient: vertical;
+            // display: -webkit-box;
+            // text-overflow: ellipsis;
+            //위 네 줄 코드는 긴 문장의 마지막에 ..처리하기 위해 사용
+            //-webkit- 아직 표준화되지 않았지만 자체적으로 사용 가능
+          }
+        }
+      }
+    }
+  }
+}
+
+.recruit {
+  color: #fff;
+  padding: 150px 0;
+  background-image: url(../images/main/background.png);
+
+  .txt-box {
+    font-size: $h1 * 1.25;
+    font-weight: 900;
+    line-height: 2;
+
+    .rolling {
+      height: 100px;
+      width: 400px;
+      overflow: hidden;
+      text-align: center;
+      color: $main-color;
+      display: inline-block;
+      position: relative;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0px;
+      }
+    }
+  }
+  .more {
+    display: flex;
+    width: 200px;
+    height: 60px;
+    background-color: $main-color;
+    justify-content: center;
+    align-items: center;
+    font-size: $h4;
+    font-weight: 500;
+    @include longShadow(7, darken($main-color, 10));
+    overflow: hidden;
+  }
+}
+
 .title-box {
   h2 {
     font-size: $h1;
@@ -115,7 +287,7 @@
     .mini {
       color: $main-color;
       display: block;
-      //줄바꿈
+      // block : 줄바꿈
       font-size: 18px;
       margin-bottom: 20px;
     }
@@ -124,6 +296,17 @@
   p {
     font-size: $h3;
     line-height: 1.25;
+  }
+
+  .detail {
+    font-weight: 700;
+    .material-icons {
+      vertical-align: middle;
+      margin-left: 10px;
+      //h2태그와 떨어트리기 위해 설정
+      margin-bottom: 6px;
+      //margin-bottom을 줘서 화살표가 조금이라도 위로 가게 조정
+    }
   }
 }
 

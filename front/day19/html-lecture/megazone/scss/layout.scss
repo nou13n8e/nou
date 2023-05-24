@@ -16,10 +16,10 @@
 
     img {
       height: 40px;
-      //로고 사이즈 줄이기
+      //높이를 제한해서 로고 사이즈 줄이기
       top: 20px;
       position: absolute;
-      //로고 2개 모두 absolute 처리한 뒤 opacity 처리
+      //로고 2개 모두 absolute한 뒤 opacity 처리
       opacity: 0;
       transition: all 0.25s ease;
 
@@ -61,7 +61,7 @@
         font-size: $h4;
         font-weight: 500;
         box-sizing: border-box;
-        // box-sizing (default: content-box)
+        // box-sizing:border-box 테두리를 기준으로 크기 결정 (default: content-box)
       }
     }
   }
