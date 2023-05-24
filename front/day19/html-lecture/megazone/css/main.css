@@ -24,7 +24,6 @@
 .banner .mask {
   margin-top: 120px;
   position: relative;
-  border: 1px solid #f00;
 }
 .banner .mask .list li {
   width: 1160px;
