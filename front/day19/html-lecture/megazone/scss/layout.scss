@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixins";
 
 .header {
   position: fixed;
@@ -63,6 +64,115 @@
         box-sizing: border-box;
         // box-sizing:border-box 테두리를 기준으로 크기 결정 (default: content-box)
       }
+    }
+  }
+}
+
+.footer {
+  background-color: #111;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 150px 0;
+  .upper {
+    display: flex;
+
+    .menu-box {
+      width: 50%;
+      //list끼리 떨어트리기 위해 덮어씌우고 넓이 주기
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        //list끼리 떨어트리기 위해 덮어씌우기
+        > li {
+          width: 50%;
+          margin-bottom: 50px;
+          &:nth-child(1) {
+            order: 1;
+          }
+          &:nth-child(2) {
+            order: 3;
+          }
+          &:nth-child(3) {
+            order: 2;
+          }
+          &:nth-child(4) {
+            order: 4;
+          }
+          &:nth-child(5) {
+            order: 5;
+          }
+        }
+        .depth01 {
+          font-size: $h3;
+          font-weight: 700;
+          &:after {
+            @include icon("\f1df");
+            display: inline-block;
+            margin-left: 20px;
+          }
+        }
+
+        .depth02 {
+          margin-top: 50px;
+          a {
+            font-size: $h4;
+            padding: 10px 0;
+            display: block;
+            //a 태그는 inline이기 때문에 display를 block처리해야 padding가능
+          }
+        }
+      }
+    }
+
+    .inquiry {
+      position: relative;
+      background-color: #222;
+      // width: 50%; -> flex-grow: 1을 준 것과 같은 효과 발생
+      flex-grow: 1;
+      padding: 80px;
+      font-size: $h4;
+      .main {
+        font-size: $h2;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .more {
+        position: absolute;
+        right: 80px;
+        bottom: 80px;
+        //상위 요소인 inquiry에 position: relative를 주고 padding만큼 여백 주기
+      }
+    }
+  }
+
+  .lower {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding-top: 100px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color: rgba(255, 255, 255, 0.5);
+    address {
+      font-family: "Noto Sans KR";
+      line-height: 1.5;
+
+      a {
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 700;
+      }
+      .info-box {
+        display: flex;
+        margin: 10px 0;
+      }
+      dl {
+        display: flex;
+        margin-right: 20px;
+        align-items: center;
+      }
+    }
+    .copyright {
+      font-size: 12px;
     }
   }
 }

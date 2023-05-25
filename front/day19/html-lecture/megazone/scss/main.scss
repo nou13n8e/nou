@@ -264,18 +264,19 @@
       }
     }
   }
-  .more {
-    display: flex;
-    width: 200px;
-    height: 60px;
-    background-color: $main-color;
-    justify-content: center;
-    align-items: center;
-    font-size: $h4;
-    font-weight: 500;
-    @include longShadow(7, darken($main-color, 10));
-    overflow: hidden;
-  }
+}
+
+.more {
+  display: flex;
+  width: 200px;
+  height: 60px;
+  background-color: $main-color;
+  justify-content: center;
+  align-items: center;
+  font-size: $h4;
+  font-weight: 500;
+  @include longShadow(7, darken($main-color, 10));
+  overflow: hidden;
 }
 
 .title-box {
