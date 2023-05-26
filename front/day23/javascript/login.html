@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="login-process.html">
+      <div>
+        <label><span>아이디</span><input type="text" class="user-id" name="userID" /></label>
+        <!-- 서버에서는 class대신 name으로 데이터를 받기 때문에 name이 더 중요 -->
+      </div>
+      <div>
+        <label><span>패스워드</span><input type="password" class="user-pw" name="userPW" /></label>
+      </div>
+      <div><button class="btn-login">로그인</button></div>
+    </form>
+    <script>
+      const btnLogin = document.querySelector(".btn-login");
+      const userID = document.querySelector(".user-id");
+      const userPW = document.querySelector(".user-pw");
+      btnLogin.addEventListener("click", (e) => {
+        console.log(e);
+        e.preventDefault();
+        //2 login-process.html로 넘어가야 하는데 넘어가지 않게 설정(태그가 갖고 있는 기능을 제어)
+        console.log("click");
+        //1 "click"이 나타났다가 사라지는 이유: form태그 안에 있는데 action=""이 비어있어서 새로고침이 반복되기 때문
+        console.log(userID.value);
+        console.log(userPW.value);
+
+        if (userID.value === "1234" && userPW.value === "1234") {
+          alert("로그인 되었습니다.");
+          location.href = "http://www.naver.com";
+          //3 조건이 true라면 location.href로 해당 페이지로 이동
+        }
+      });
+    </script>
+  </body>
+</html>

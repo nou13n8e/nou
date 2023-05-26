@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label><span>AGE</span><input type="text" class="user-age" /></label>
+      <button class="btn-adult">성인인증</button>
+    </form>
+    <!-- user-age가 20 이상일 경우 페이지가 넘어가고, 20 미만이면 페이지가 넘어가지 않도록 -->
+  </body>
+
+  <script>
+    const btnAdult = document.querySelector(".btn-adult");
+    const userAge = document.querySelector(".user-age");
+    btnAdult.addEventListener("click", (e) => {
+      const age = parseInt(userAge.value);
+      //input으로 입력된 값이 text로 들어오기 때문에 parseInt를 이용해 숫자로 변환
+      if (age >= 20) {
+        alert("성인인증 성공");
+        location.href = "http://www.naver.com";
+      }
+      alert("성인인증 실패");
+      e.preventDefault();
+    });
+  </script>
+</html>

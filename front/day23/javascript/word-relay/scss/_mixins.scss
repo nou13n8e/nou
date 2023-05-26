@@ -1,0 +1,41 @@
+@mixin icon($code) {
+  font-family: "Material Icons";
+  content: $code;
+}
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin multiEllipsis($line: 3, $lineHeight: 1.5) {
+  line-height: $lineHeight;
+  height: $line * $lineHeight * 1em;
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+}
+
+@mixin longShadow($limit: 30, $color: rgba(0, 0, 0, 0.1)) {
+  $shadow: "";
+  @for $i from 1 to $limit {
+    $shadow: $shadow + $i + "px " + $i + "px 0px " + $color + ",";
+  }
+  $shadow: $shadow + $limit + "px " + $limit + "px 0px " + $color;
+  $shadow: unquote($shadow);
+  text-shadow: $shadow;
+}

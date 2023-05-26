@@ -1,0 +1,58 @@
+.main-mask {
+  display: flex;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  .list {
+    li {
+      .txt {
+        color: #fff;
+        position: absolute;
+        top: 20%;
+        left: 350px;
+        .main {
+          font-size: 130px;
+          font-weight: 900;
+          line-height: 1.25;
+        }
+        .sub {
+          color: rgba(255, 255, 255, 0.75);
+          margin-top: 100px;
+          font-weight: 700;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+.mid-mask {
+  margin-top: 200px;
+  margin-left: 400px;
+  overflow: hidden;
+  .txt-box {
+    margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .list {
+    .img {
+      img {
+        width: 500px;
+      }
+    }
+    .txt {
+      .main {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .sub {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+  }
+}

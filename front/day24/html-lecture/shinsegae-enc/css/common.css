@@ -1,0 +1,11 @@
+body {
+  font-size: 18px;
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  min-height: 4000px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
