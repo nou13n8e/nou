@@ -11,7 +11,7 @@ create table member(
 
 insert into member (id, name, password, address, code, gender) values ('gnd', '가나다', '1234', '서울특별시 관악구 남부순환로 1820 에그옐로우 14층', '08787', 'female');
 insert into member values ('lmb', '라마바', '1234', '서울특별시 관악구 남부순환로 1820 에그옐로우 14층',  '08787', 'female');
-delete from member where id='gnd';
+delete from member where id='saj';
 commit;
 --rollback;
 --transaction;

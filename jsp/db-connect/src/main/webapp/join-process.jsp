@@ -9,9 +9,10 @@
 	String pUserId=request.getParameter("userId");
 	String pUserPw=request.getParameter("userPw");
 	String pUserName=request.getParameter("userName");
-	String pUserAddress=request.getParameter("address");
-	String pUserCode=request.getParameter("code");
-	String pUserGender=request.getParameter("gender");
+	int pUserZonecode=Integer.parseInt(request.getParameter("zonecode"));
+	String pUserAddress=request.getParameter("userAddress");
+	String pUserDetailAddress=request.getParameter("detailAddress");
+	String pUserExtraAddress=request.getParameter("extraAddress");
 	
 	String driver="oracle.jdbc.OracleDriver";
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -22,7 +23,7 @@
 	PreparedStatement pstmt=null;
 	ResultSet rs=null;
 	
-	String sql="insert into member values(?,?,?,?,?,?)";
+	String sql="insert into member values(?,?,?,?,?,?,?)";
 	
 	Class.forName(driver);
 	conn=DriverManager.getConnection(url, id, pw);
@@ -30,9 +31,10 @@
 	pstmt.setString(1, pUserId);
 	pstmt.setString(2, pUserName);
 	pstmt.setString(3, pUserPw);
-	pstmt.setString(4, pUserAddress);
-	pstmt.setString(5, pUserCode);
-	pstmt.setString(6, pUserGender);
+	pstmt.setInt(4, pUserZonecode);
+	pstmt.setString(5, pUserAddress);
+	pstmt.setString(6, pUserDetailAddress);
+	pstmt.setString(7, pUserExtraAddress);
 	int result=pstmt.executeUpdate();
 	if(result>0){
 		response.sendRedirect("login-form.jsp");

@@ -53,14 +53,16 @@
 		//16 로그인에 성공하면 특정 페이지가 바뀌게끔 설정(userId 전달 불가능)
 		//페이지가 바뀔 때 userId의 값을 받을 수 있게 직접 입력하는 방법
 		
-		request.setAttribute("userId", userId);
+		//pageContext.setAttribute("pageUserId", userId);
+		//18 pageContext는 해당 페이지를 벗어나면 작동하지 않음
+		session.setAttribute("loggedUserId", userId);
+		session.setAttribute("loggedUserName", userName);
+		//19 session은 끊기 전까지 작동함
+		
+		//request.setAttribute("loggedUserId", userId);
 		request.getRequestDispatcher("login-ok.jsp").forward(request, response);
 		//17 로그인에 성공하면 특정 페이지가 바뀌게끔 설정(userId 전달 가능)
 		
-		pageContext.setAttribute("pageUserId", userId);
-		//18 pageContext는 해당 페이지를 벗어나면 작동하지 않음
-		session.setAttribute("userId", userId);
-		//19 session은 끊기 전까지 작동함
 	} else {
 		out.println("로그인 실패");
 	}
