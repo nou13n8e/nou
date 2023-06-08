@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="include/header.jsp" %>
 <form action="modify-password-process.jsp" method="post" class="join" name="pwForm">
+<!-- process로 연결되는 페이지를 만들었다면 action에서 연결해주기 -->
   <div class="container-sm">
     <div class="row justify-content-center">
       <div class="col-6">
