@@ -24,24 +24,25 @@
 	PreparedStatement pstmt=null;
 	ResultSet rs=null;
 	
-	String sql="insert into member values(?,?,?,?,?,?,?,?)";
+	String sql="update member set name=?,email=?,zonecode=?,address=?,detailAddress=?,extraAddress=? where id=? and password=?";
 	
 	Class.forName(driver);
 	conn=DriverManager.getConnection(url, id, pw);
 	pstmt=conn.prepareStatement(sql);
-	pstmt.setString(1, pUserId);
-	pstmt.setString(2, pUserName);
-	pstmt.setString(3, pUserPw);
-	pstmt.setString(4, pUserEmail);
-	pstmt.setInt(5, pUserZonecode);
-	pstmt.setString(6, pUserAddress);
-	pstmt.setString(7, pUserDetailAddress);
-	pstmt.setString(8, pUserExtraAddress);
+	pstmt.setString(1, pUserName);
+	pstmt.setString(2, pUserEmail);
+	pstmt.setInt(3, pUserZonecode);
+	pstmt.setString(4, pUserAddress);
+	pstmt.setString(5, pUserDetailAddress);
+	pstmt.setString(6, pUserExtraAddress);
+	pstmt.setString(7, pUserId);
+	pstmt.setString(8, pUserPw);
 	int result=pstmt.executeUpdate();
 	if(result>0){
+		session.invalidate();
 		response.sendRedirect("login-form.jsp");
 	} else {
-		out.println("<script>alert('회원가입 실패(서버 오류)'); history.back();</script>");
+		out.println("<script>alert('회원 정보 수정 실패(서버 오류)'); history.back();</script>");
 	}
 	
 	

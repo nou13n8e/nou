@@ -6,7 +6,7 @@
     pageEncoding="UTF-8"%>
 <%
 
-	String userId=(String) session.getAttribute("loggedUserId");
+	String userId=(String) request.getParameter("userId");
 	String userPw=(String) request.getParameter("userPw");
 
 	String driver="oracle.jdbc.OracleDriver";
@@ -16,7 +16,8 @@
 	
 	Connection conn=null;
 	PreparedStatement pstmt=null;
-	ResultSet rs=null;
+	//ResultSet rs=null;
+	//select를 제외한 나머지에는 필요 없음
 	
 	String sql="delete from member where id=? and password=?";
 	
@@ -26,6 +27,7 @@
 	pstmt.setString(1, userId);
 	pstmt.setString(2, userPw);
 	int result=pstmt.executeUpdate();
+	//select를 제외한 나머지에는 executeUpdate 사용(insert, update, delete)
 	if(result>0){
 		session.invalidate();
 		//session의 값 삭제

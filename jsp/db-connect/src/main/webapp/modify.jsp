@@ -1,13 +1,50 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "include/header.jsp" %>
-<form action="join-process.jsp" method="post" class="join" name="joinform">
+<%
+	String driver="oracle.jdbc.OracleDriver";
+	String url="jdbc:oracle:thin:@localhost:1521:xe";
+	String id="nou";
+	String pw="0080";
+	
+	Connection conn=null;
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	
+	String pLoggedUserId=(String)session.getAttribute("loggedUserId");
+	String sql="select id,name,email,address,zonecode,lpad(zonecode,5,'0') as changeZonecode,detailAddress,extraAddress from member where id=?";
+	
+	Class.forName(driver);
+	conn=DriverManager.getConnection(url, id, pw);
+	pstmt=conn.prepareStatement(sql);
+	pstmt.setString(1, pLoggedUserId);
+	rs=pstmt.executeQuery();
+	
+	String address=null;
+	String detailAddress=null;
+	String extraAddress=null;
+	String zonecode=null;
+	String name=null;
+	String email=null;
+	if(rs.next()){
+		address=rs.getString("address");
+		detailAddress=rs.getString("detailAddress");
+		extraAddress=rs.getString("extraAddress");
+		zonecode=rs.getString("changeZonecode");
+		name=rs.getString("name");
+		email=rs.getString("email");
+	}
+%>
+<form action="modify-process.jsp" method="post" class="join" name="joinform">
   <div class="container-sm mt-5">
     <div class="row justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
           <div class="input-group mb-3">
-            <input type="text" name="userId" class="form-control userId" id="floatingInput" placeholder="아이디를 입력해주세요." />
-            <button class="btn btn-secondary" type="button" id="btnIdCheck">중복 찾기</button>
+            <input type="text" name="userId" class="form-control userId" id="floatingInput" placeholder="아이디를 입력해주세요." value="<%= pLoggedUserId %>" readonly />
           </div>
         </div>
         <div class="mb-3">
@@ -15,35 +52,31 @@
           <input type="password" name="userPw" class="form-control" id="floatingPassword" placeholder="비밀번호를 입력해주세요." />
         </div>
         <div class="mb-3">
-          <label for="floatingPassword">Password Check</label>
-          <input type="password" name="userPw2" class="form-control" id="floatingPassword2" placeholder="비밀번호 확인" />
-        </div>
-        <div class="mb-3">
           <label for="floatingName">Name</label>
-          <input type="text" name="userName" class="form-control" id="floatingName" placeholder="이름을 입력해 주세요." />
+          <input type="text" name="userName" class="form-control" id="floatingName" placeholder="이름을 입력해 주세요." value="<%= name %>" />
         </div>
         <div class="mb-3">
           <label for="floatingEmail">Email</label>
-          <input type="email" name="userEmail" class="form-control" id="floatingEmail" placeholder="이메일을 입력해 주세요." />
+          <input type="email" name="userEmail" class="form-control" id="floatingEmail" placeholder="이메일을 입력해 주세요." value="<%= email %>" readonly/>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="zonecode" placeholder="우편번호를 입력해주세요." name="zonecode" readonly />
+          <input type="text" class="form-control" id="zonecode" placeholder="우편번호를 입력해주세요." name="zonecode" value="<%= zonecode %>" readonly />
           <button class="btn btn-secondary" type="button" id="button-addon2" onclick="searchZonecode()">찾기</button>
         </div>
         <div class="mb-3">
           <label for="floatingAddress">Address</label>
-          <input type="text" class="form-control address" id="floatingAddress" placeholder="주소를 입력해 주세요." name="userAddress" />
+          <input type="text" class="form-control address" id="floatingAddress" placeholder="주소를 입력해 주세요." name="userAddress" value="<%= address %>" />
         </div>
         <div class="row mb-3">
           <div class="col">
-            <input type="text" class="form-control detailAddress" placeholder="상세주소" name="detailAddress" />
+            <input type="text" class="form-control detailAddress" placeholder="상세주소" name="detailAddress" value="<%= detailAddress %>" />
           </div>
           <div class="col">
-            <input type="text" class="form-control extraAddress" placeholder="참고사항" name="extraAddress" />
+            <input type="text" class="form-control extraAddress" placeholder="참고사항" name="extraAddress" value="<%= extraAddress %>" />
           </div>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-primary btn-lg" id="btnSubmit">Join</button>
+          <button type="submit" class="btn btn-primary btn-lg" id="btnSubmit">회원 정보 수정</button>
         </div>
       </div>
     </div>
@@ -57,41 +90,17 @@
 
   const joinform = document.forms.joinform;
 
-  let isDoubleCheck = false;
-
   btnSubmit.addEventListener("click", (e) => {
-    if (joinform.elements.userId.value.trim() === "") {
-      e.preventDefault();
-      alert("아이디를 입력하세요.");
-      joinform.elements.userId.value = "";
-      joinform.elements.userId.value.focus();
-    } else if (isDoubleCheck === false) {
-      e.preventDefault();
-      alert("아이디 중복 찾기를 하세요.");
-      userId.focus();
-    } else if (joinform.elements.userPw.value.trim() === "") {
+      if (joinform.elements.userPw.value.trim() === "") {
       e.preventDefault();
       alert("비밀번호를 입력하세요.");
       joinform.elements.userPw.value = "";
       joinform.elements.userPw.value.focus();
-    } else if (joinform.elements.userPw.value !== joinform.elements.userPw2.value) {
-      e.preventDefault();
-      alert("비밀번호가 맞지 않습니다.");
-      joinform.elements.userPw2.value = "";
-      joinform.elements.userPw2.value.focus();
     } else if (joinform.elements.userName.value.trim() === "") {
       e.preventDefault();
       alert("이름을 입력하세요.");
       joinform.elements.userName.value = "";
       joinform.elements.userName.value.focus();
-    } else if (joinform.elements.userEmail.value.trim() === "") {
-      e.preventDefault();
-      alert("이메일을 입력하세요.");
-      joinform.elements.userEmail.value = "";
-      joinform.elements.userEmail.value.focus();
-    } else if (joinform.elements.userEmail.value.match(regEmail) === null) {
-      e.preventDefault();
-      alert("이메일 형식에 맞게 입력하세요.");
     } else if (joinform.elements.zonecode.value.trim() === "") {
       e.preventDefault();
       alert("우편번호를 입력하세요.");
