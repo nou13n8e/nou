@@ -57,7 +57,7 @@
 
   const joinform = document.forms.joinform;
 
-  let isDoubleCheck = true;
+  let isDoubleCheck = false;
 
   btnSubmit.addEventListener("click", (e) => {
     if (joinform.elements.userId.value.trim() === "") {
@@ -106,7 +106,7 @@
     }
   });
   btnIdCheck.addEventListener("click", () => {
-    fetch("idCheck.jsp?userId=" + userId.value)
+    fetch("../member/idCheck?userId=" + userId.value)
       .then((response) => {
         return response.json();
       })

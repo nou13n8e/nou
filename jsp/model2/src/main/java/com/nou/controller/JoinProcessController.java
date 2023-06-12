@@ -12,7 +12,6 @@ import com.nou.model.MemberDto;
 import com.nou.utils.ScriptWriter;
 
 @WebServlet("/member/joinProcess")
-//절대영역이라 건드리지 말 것!
 public class JoinProcessController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
