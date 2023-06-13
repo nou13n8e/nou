@@ -31,9 +31,9 @@
     </tbody>
   </table>
   <div class="mt-5">
-    <a href="modify.jsp" class="btn btn-primary">회원 정보 수정</a>
-    <a href="modify-password.jsp" class="btn btn-primary">비밀번호 변경</a>
-    <a href="delete.jsp" class="btn btn-danger">회원 탈퇴</a>
+    <a href="../member/modify?userId=${infoMemberDto.id}" class="btn btn-primary">회원 정보 수정</a>
+    <a href="../member/modifyPassword" class="btn btn-primary">비밀번호 변경</a>
+    <a href="../member/delete" class="btn btn-danger">회원 탈퇴</a>
   </div>
 </div>
 <%@ include file="../include/footer.jsp" %>
