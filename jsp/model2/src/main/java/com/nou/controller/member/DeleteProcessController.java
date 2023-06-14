@@ -1,12 +1,12 @@
-package com.nou.controller;
+package com.nou.controller.member;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.nou.model.MemberDao;
 import com.nou.utils.ScriptWriter;
@@ -28,7 +28,7 @@ public class DeleteProcessController extends HttpServlet {
 		if(result>0) {
 			HttpSession session=request.getSession();
 			session.invalidate();
-			ScriptWriter.alertAndNext(response, "회원 탈퇴 되었습니다.", "../member/login"); 
+			ScriptWriter.alertAndNext(response, "회원 탈퇴 되었습니다.", "../index/index"); 
 		} else {
 			ScriptWriter.alertAndBack(response, "알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
 		}
