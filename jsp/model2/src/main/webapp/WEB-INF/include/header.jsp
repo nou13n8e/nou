@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <a href="../index/index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             nou
           </a>
     
@@ -28,7 +28,6 @@
 	          	    <li class="nav-item"><a href="../member/logout" class="nav-link">logout</a></li>
 	            	<li class="nav-item"><a href="../member/info?userId=${loggedMemberId}" class="nav-link">${loggedMemberName}</a></li>
 	            	<li class="nav-item"><a href="../board/list" class="nav-link">list</a></li>
-	            	<li class="nav-item"><a href="../board/write" class="nav-link">write</a></li>
 	          	</c:otherwise>
           	</c:choose>
           	

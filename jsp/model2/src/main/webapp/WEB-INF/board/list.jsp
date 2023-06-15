@@ -31,5 +31,28 @@
 		    </c:forEach>
 		  </tbody>
 		</table>
+		
+		<nav aria-label="Page navigation example">
+ 			 <ul class="pagination justify-content-center">
+  				  <li class="page-item">
+				      <a class="page-link" href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				  </li>
+				  <c:forEach begin="1" end="${pageTotal}" step="1" var="page" varStatus="status">
+					   <li class="page-item ${page==param.clickPage?'active':''}">
+					   <a class="page-link" href="../board/list?start=${(page-1)*10+1}&end=${page*10}&clickPage=${page}">${page}</a></li>
+				  </c:forEach>
+				  <li class="page-item">
+					  <a class="page-link" href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+   				 </li>
+ 			 </ul>
+		</nav>
+		
+		<div class="text-center mt-5">
+			<a href="../board/write" class="btn btn-primary">WRITE</a>
+		</div>
 	</div>
 <%@ include file="../include/footer.jsp"%>

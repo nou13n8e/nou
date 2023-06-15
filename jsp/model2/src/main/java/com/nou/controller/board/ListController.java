@@ -25,8 +25,20 @@ public class ListController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardDao boardDao=new BoardDao();
-		ArrayList<BoardDto> boardList=boardDao.getList();	//객체를 담을 수 있는 배열 생성
+		
+		String strStart=request.getParameter("start");
+		String strEnd=request.getParameter("end");
+		
+		double pagePerList=10;									//10개씩 나누어 보여줄 때
+		double total=boardDao.getTotal();						//만약 글의 갯수가 108개라면
+		int pageTotal=(int)Math.ceil(total/pagePerList);		//11페이지가 생성되어야 함
+	
+		int start=strStart==null?1:Integer.parseInt(strStart);
+		int end=strEnd==null?(int)pagePerList:Integer.parseInt(strEnd);
+		
+		ArrayList<BoardDto> boardList=boardDao.getList(start, end);	//객체를 담을 수 있는 배열 생성
 		request.setAttribute("boardList", boardList);
+		request.setAttribute("pageTotal", pageTotal);
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/board/list.jsp");
 		dispatcher.forward(request, response);
 	}
