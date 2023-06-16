@@ -36,7 +36,7 @@
 				<a href="../board/modify?id=${boardDto.id}" class="btn btn-primary">MODIFY</a>
 				<a href="../board/delete?id=${boardDto.id}" id="btnDelete" class="btn btn-danger">DELETE</a>
 			</c:if>
-				<a href="../board/list" class="btn btn-secondary">LIST</a>
+				<a href="../board/list?clickPage=${param.clickPage}" class="btn btn-secondary">LIST</a>
 		</div>
 		<script>
 			const btnDelete=document.querySelector("#btnDelete");

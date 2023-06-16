@@ -22,6 +22,11 @@
        	  	  <button type="submit" class="btn btn-primary btn" id="btnSubmit">MODIFY</button>
      	    </div>
 		</form>
+	<script>
+      $("#contents").summernote({
+        tabsize: 2,
+        height: 100
+      });
+    </script>
 	</div>
-
 <%@ include file="../include/footer.jsp"%>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-
 	<div class="container-sm mt-5">
 		<form action="../board/writeProcess" method="post">
 		<input type="hidden" name="userId" value="${loggedMember.id}">
@@ -23,6 +22,11 @@
        	  	  <a href="../board/list" class="btn btn-secondary btn">LIST</a>
      	    </div>
 		</form>
+	<script>
+      $("#contents").summernote({
+        tabsize: 2,
+        height: 100
+      });
+    </script>
 	</div>
-
 <%@ include file="../include/footer.jsp"%>
