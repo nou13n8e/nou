@@ -32,7 +32,7 @@ public class ListController extends HttpServlet {
 		
 		int clickPage=0;
 		String tempClickPage=request.getParameter("clickPage");	//list에 진입했을 때
-		if(tempClickPage==null) {								//리스트1에 머물게 하기 위해 설정
+		if(tempClickPage==null) {								//1에 있게 하기 위해 설정
 			clickPage=1;
 		} else {
 			clickPage=Integer.parseInt(tempClickPage);

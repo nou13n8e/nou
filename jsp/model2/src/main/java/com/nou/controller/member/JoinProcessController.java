@@ -1,6 +1,18 @@
 package com.nou.controller.member;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,7 +33,7 @@ public class JoinProcessController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
+						
 		String userId=request.getParameter("userId");
 		String userPw=request.getParameter("userPw");
 		String userName=request.getParameter("userName");
@@ -51,4 +63,9 @@ public class JoinProcessController extends HttpServlet {
 		}
 	}
 
+	private String getToday() {
+		return new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis());	//현재 날짜 및 시간 반환
+	}
+	
 }
+
