@@ -85,8 +85,9 @@ public class BoardDao {
 //		String sql="select * from"
 //				 + "(select rownum as no, b.* from"
 //				 + "(select * from replyBoard order by id desc) b) where no >= ? and no <= ?";
-		String sql="select rownum as no, b.* from"
-				 + "(select * from replyBoard order by regroup desc, relevel asc) b";
+		String sql="select * from"
+				 + "(select rownum as no, b.* from"
+				 + "(select * from replyBoard order by regroup desc, relevel asc) b) where no>=? and no<=?";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
