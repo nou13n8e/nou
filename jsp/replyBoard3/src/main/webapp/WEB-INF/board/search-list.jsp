@@ -20,7 +20,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<c:forEach items="${boardList}" var="boardDto" varStatus="status">
+		  	<c:forEach items="${searchList}" var="boardDto" varStatus="status">
 		    <tr>
 		      <td>${pageDto.total - pageDto.pagePerList*(clickPage-1) - status.index}</td>
 		      <td>
@@ -79,7 +79,6 @@
 					<option value="title">title</option>
 					<option value="name">user</option>
 					<option value="contents">contents</option>
-					<option value="all">all</option>
 				</select>
 				<input type="text" name="searchWord" placeholder="검색어를 입력해주세요.">
 				<button>검색</button>

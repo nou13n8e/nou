@@ -31,12 +31,16 @@ select rownum as no, b.* from(
     select * from replyBoard order by regroup desc, relevel asc
     ) b;
 
+select * from replyboard where name='가나다';
+select * from replyboard where title like '%제목%';
 
+select * from replyboard where (title like '%제목%') or (name like '%가나다%');
+select * from replyboard where (title like '%제목%') and (name like '%가나다%');
 
-
-
-
-
+select * from
+(select rownum as no, b.* from(
+    select * from replyBoard where name like '%가다나%' order by regroup desc, relevel asc
+    ) b) where no>=1 and no<=10;
 
 
 

@@ -2,8 +2,8 @@ package com.nou.controller.board;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-
+import java.util.HashMap;
+import java.util.List;
 
 import com.nou.model.BoardDao;
 import com.nou.model.BoardDto;
@@ -63,7 +63,11 @@ public class ListController extends HttpServlet {
 		pageDto.setPageStart(pageStart);
 		pageDto.setPageEnd(pageEnd);
 		
-		ArrayList<BoardDto> boardList=boardDao.getList(start, end);	//객체를 담을 수 있는 배열 생성
+		HashMap<String, Integer> pageMap=new HashMap<>();
+		pageMap.put("start", start);
+		pageMap.put("end", end);
+		
+		List<BoardDto> boardList=boardDao.getList(pageMap);	//객체를 담을 수 있는 배열 생성
 		request.setAttribute("boardList", boardList);
 		request.setAttribute("clickPage", clickPage);
 		

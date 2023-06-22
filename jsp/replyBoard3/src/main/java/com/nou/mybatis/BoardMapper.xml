@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nou.mybatis">
+  <select id="getList" parameterType="HashMap" resultType="BoardDto">
+    <!-- select * from (select rownum as no, b.* from (select * from replyBoard order by regroup desc, relevel asc) b) where no between 1 and 10 -->
+    <![CDATA[
+    select * from (select rownum as no, b.* from (select * from replyBoard order by regroup desc, relevel asc) b) where no >=#{start} and no <=#{end}
+    ]]>
+  </select>
+  <select id="getView" parameterType="Integer" resultType="BoardDto">
+  	select * from replyBoard where id=#{id}
+  </select>
+  <update id="updateHit" parameterType="Integer">
+  	update replyBoard set hit=hit+1 where id=#{id}
+  </update>
+  <update id="deleteBoard" parameterType="Integer">
+  	update replyBoard set available=0 where id=#{id}
+  </update>
+  <insert id="writeBoard" parameterType="BoardDto">
+  	insert into replyBoard values(seq_replyBoard.nextval, #{userId}, #{name}, #{title}, #{contents}, sysdate, 0, #{regroup}, #{relevel}, #{restep}, 1)
+  </insert>
+  <select id="search" parameterType="HashMap" resultType="BoardDto">
+  	select * from replyboard where
+  	<choose>
+  		<when test="category=='title'">
+  			(title like '%'||#{searchWord}||'%')
+  		</when>
+  		<when test="category=='name'">
+  			(name like '%'||#{searchWord}||'%')
+  		</when>
+  		<when test="category=='contents'">
+  			(contents like '%'||#{searchWord}||'%')
+  		</when>
+  		<when test="category=='all'">
+  			(title like '%'||#{searchWord}||'%') or (name like '%'||#{searchWord}||'%') or (contents like '%'||#{searchWord}||'%')
+  		</when>
+ 	</choose>
+  </select>
+</mapper>
